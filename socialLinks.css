@@ -3,9 +3,31 @@ ul.socialLinks {
     margin: 0px;
     padding: 0px;
 }
-ul.socialLinks li a.sl-link {
-    text-decoration: none;
+ul.socialLinks li {
+    float: left;
 }
+ul.socialLinks li a.sl-link {
+    cursor: pointer;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+}
+ul.socialLinks li a.sl-link i {
+    display: block;
+    font-size: 1.4rem;
+}
+ul.socialLinks li a.sl-link span.socialLinkLabel {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+}
+ul.socialLinks li a.sl-link span.socialLinkAccountName {
+    display: block;
+    font-size: 0.8rem;
+}
+
 
 .sl-address-color {color: #17a25f !important; }
 .sl-attach-color {color: #000000 !important; }
@@ -18,7 +40,7 @@ ul.socialLinks li a.sl-link {
 .sl-google_plus-color {color: #dd4b39 !important; }
 .sl-hangouts-color {color: #0f9d58 !important; }
 .sl-instagram-color {color: #405de6 !important; }
-.sl-kakao-color {color: #fbe300 !important; }
+.sl-kakao-color {color: #2e0404 !important; }
 .sl-line-color {color: #00c300 !important; }
 .sl-linkedin-color {color: #0077b5 !important; }
 .sl-messenger-color {color: #0084ff !important; }
