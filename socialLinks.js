@@ -1,7 +1,7 @@
 (function ( $ ) {
     var socialLinkTemplates = {
         address: '<li><a class="sl-link[[color]]" href="https://www.google.com.sg/maps/place/[[id]]" target="_blank"><i class="slicon-address"></i>[[label]] [[account]]</a></li>',
-        attach: '',
+        attach: '<li><a class="sl-link[[color]]" href="[[id]]" target="_blank"><i class="slicon-attach"></i>[[label]] [[account]]</a></li>',
         dribbble: '',
         dropbox: '',
         email: '<li><a class="sl-link[[color]]" href="mailto:[[id]]" target="_blank"><i class="slicon-email"></i>[[label]] [[account]]</a></li>',
@@ -9,26 +9,26 @@
         flickr: '',
         github: '<li><a class="sl-link[[color]]" href="https://github.com/[[id]]" target="_blank"><i class="slicon-github"></i>[[label]] [[account]]</a></li>',
         google_plus: '<li><a class="sl-link[[color]]" href="https://plus.google.com/+[[id]]" target="_blank"><i class="slicon-google-plus"></i>[[label]] [[account]]</a></li>',
-        hangouts: '<li><a class="sl-link[[color]]" href="#" data-toggle="sl-popover" data-content="Add <b>[[id]]</b> to your contact list and start chating at <a href=\'https://hangouts.google.com\' target=\'_blank\'>hangouts.google.com</a>"><i class="slicon-hangouts"></i>[[label]] [[account]]</a></li>',
+        hangouts: '<li><a class="sl-link[[color]]" data-toggle="sl-popover" data-content="Add <b>[[id]]</b> to your contact list and start chating at <a href=\'https://hangouts.google.com\' target=\'_blank\'>hangouts.google.com</a>"><i class="slicon-hangouts"></i>[[label]] [[account]]</a></li>',
         instagram: '<li><a class="sl-link[[color]]" href="https://www.instagram.com/[[id]]" target="_blank"><i class="slicon-instagram"></i>[[label]] [[account]]</a></li>',
-        kakao: '',
+        kakao: '<li><a class="sl-link[[color]]" data-toggle="sl-popover" data-content="Get your <a href=\'http://kakao.com/talk\' target=\'_blank\'>Kakao</a> app and find my kakao<b>account</b>: <b>[[id]]</b>"><i class="slicon-hangouts"></i>[[label]] [[account]]</a></li>',
         line: '<li><a class="sl-link[[color]]" href="http://line.me/ti/p/[[id]]" target="_blank"><i class="slicon-line"></i>[[label]] [[account]]</a></li>',
         linkedin: '<li><a class="sl-link[[color]]" href="https://www.linkedin.com/in/[[id]]/" target="_blank"><i class="slicon-linkedin"></i>[[label]] [[account]]</a></li>',
         messenger: '<li><a class="sl-link[[color]]" href="https://m.me/[[id]]/" target="_blank"><i class="slicon-messenger"></i>[[label]] [[account]]</a></li>',
         mobile: '<li><a class="sl-link[[color]]" href="tel:[[id]]" target="_blank"><i class="slicon-mobile"></i>[[label]] [[account]]</a></li>',
-        paypal: '',
+        paypal: '<li><a class="sl-link[[color]]" href="https://paypal.me/[[id]]" target="_blank"><i class="slicon-paypal"></i>[[label]] [[account]]</a></li>',
         phone: '<li><a class="sl-link[[color]]" href="tel:[[id]]" target="_blank"><i class="slicon-phone"></i>[[label]] [[account]]</a></li>',
         pinterest: '<li><a class="sl-link[[color]]" href="https://www.pinterest.com/[[id]]/" target="_blank"><i class="slicon-pinterest"></i>[[label]] [[account]]</a></li>',
         qq: '',
         reddit: '',
-        skype: '<li><a class="sl-link[[color]]" href="#" data-toggle="sl-popover" data-content="Get your <a href=\'https://www.skype.com/en/download-skype/\' target=\'_blank\'>Skype</a> and add my ID: <b>[[id]]</b>"><i class="slicon-skype"></i>[[label]] [[account]]</a></li>',
+        skype: '<li><a class="sl-link[[color]]" data-toggle="sl-popover" data-content="Get your <a href=\'https://www.skype.com/en/download-skype/\' target=\'_blank\'>Skype</a> and add my ID: <b>[[id]]</b>"><i class="slicon-skype"></i>[[label]] [[account]]</a></li>',
         stackoverflow: '<li><a class="sl-link[[color]]" href="https://stackoverflow.com/users/[[id]]/" target="_blank"><i class="slicon-stackoverflow"></i>[[label]] [[account]]</a></li>',
-        tumblr: '',
+        tumblr: '<li><a class="sl-link[[color]]" href="https://[[id]].tumblr.com" target="_blank"><i class="slicon-tumblr"></i>[[label]] [[account]]</a></li>',
         twitter: '<li><a class="sl-link[[color]]" href="https://twitter.com/[[id]]" target="_blank"><i class="slicon-twitter"></i>[[label]] [[account]]</a></li>',
         vimeo: '',
         web: '<li><a class="sl-link[[color]]" href="[[id]]" target="_blank"><i class="slicon-web"></i>[[label]] [[account]]</a></li>',
         wechat: '',
-        whatsapp: '<li><a class="sl-link[[color]]" href="#" data-toggle="sl-popover" data-content="Get your <a href=\'https://www.whatsapp.com\' target=\'_blank\'>WhatsApp</a> and add my telephone number to your phone contact: <b>[[id]]</b>"><i class="slicon-whatsapp"></i>[[label]] [[account]]</a></li>',
+        whatsapp: '<li><a class="sl-link[[color]]" data-toggle="sl-popover" data-content="Get your <a href=\'https://www.whatsapp.com\' target=\'_blank\'>WhatsApp</a> and add my telephone number to your phone contact: <b>[[id]]</b>"><i class="slicon-whatsapp"></i>[[label]] [[account]]</a></li>',
         wordpress: '<li><a class="sl-link[[color]]" href="[[id]]" target="_blank"><i class="slicon-wordpress"></i>[[label]] [[account]]</a></li>',
         youku: '',
         youtube: '<li><a class="sl-link[[color]]" href="https://www.youtube.com/user/[[id]]" target="_blank"><i class="slicon-youtube"></i>[[label]] [[account]]</a></li>'
@@ -50,7 +50,7 @@
         linkedin: 'LinkedIn',
         messenger: 'Messenger',
         mobile: 'Mobile no.',
-        paypal: 'PayPal',
+        paypal: 'PayPal Me',
         phone: 'Phone no.',
         pinterest: 'Pinterest',
         qq: 'QQ',
@@ -86,15 +86,18 @@
             if (account) {
                 sep = ': ';
             }
-            str = str.replace('[[label]]', socialLinkLabels[key] + sep);
+            str = str.replace('[[label]]', '<span class="socialLinkLabel">' + socialLinkLabels[key] + sep + '</span>');
         } else {
             str = str.replace('[[label]]', '');
         }
         if (account) {
-            str = str.replace('[[account]]', accountName);
+            str = str.replace('[[account]]', '<span class="socialLinkAccountName">' + accountName + '</span>');
         } else {
             str = str.replace('[[account]]', '');
         }
         return str;
     }
+    $('[data-toggle="sl-popover"]').popover({
+        html: true
+    });
 }(jQuery));
