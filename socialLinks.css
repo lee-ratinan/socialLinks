@@ -1,0 +1,133 @@
+ul.socialLinks {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+ul.socialLinks li a.sl-link {
+    text-decoration: none;
+}
+
+.sl-address-color {color: #17a25f !important; }
+.sl-attach-color {color: #000000 !important; }
+.sl-dribbble-color {color: #444444 !important; }
+.sl-dropbox-color {color: #007ee5 !important; }
+.sl-email-color {color: #e75a4d !important; }
+.sl-facebook-color {color: #3b5998 !important; }
+.sl-flickr-color {color: #0063dc !important; }
+.sl-github-color {color: #4078c0 !important; }
+.sl-google_plus-color {color: #dd4b39 !important; }
+.sl-hangouts-color {color: #0f9d58 !important; }
+.sl-instagram-color {color: #405de6 !important; }
+.sl-kakao-color {color: #fbe300 !important; }
+.sl-line-color {color: #00c300 !important; }
+.sl-linkedin-color {color: #0077b5 !important; }
+.sl-messenger-color {color: #0084ff !important; }
+.sl-mobile-color {color: #000000 !important; }
+.sl-paypal-color {color: #003087 !important; }
+.sl-phone-color {color: #000000 !important; }
+.sl-pinterest-color {color: #bd081c !important; }
+.sl-qq-color {color: #2789b7 !important; }
+.sl-reddit-color {color: #ff4500 !important; }
+.sl-skype-color {color: #00aff0 !important; }
+.sl-stackoverflow-color {color: #f48024 !important; }
+.sl-tumblr-color {color: #35465c !important; }
+.sl-twitter-color {color: #1da1f2 !important; }
+.sl-vimeo-color {color: #1ab7ea !important; }
+.sl-web-color {color: #000000 !important; }
+.sl-wechat-color {color: #7bb32e !important; }
+.sl-whatsapp-color {color: #075e54 !important; }
+.sl-wordpress-color {color: #21759b !important; }
+.sl-youku-color {color: #ee3c1b !important; }
+.sl-youtube-color {color: #cd201f !important; }
+
+
+/* FONT */
+@font-face {
+    font-family: 'fontello';
+    src: url('font/fontello.eot?66252495');
+    src: url('font/fontello.eot?66252495#iefix') format('embedded-opentype'),
+        url('font/fontello.woff2?66252495') format('woff2'),
+        url('font/fontello.woff?66252495') format('woff'),
+        url('font/fontello.ttf?66252495') format('truetype'),
+        url('font/fontello.svg?66252495#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?66252495#fontello') format('svg');
+  }
+}
+*/
+
+[class^="slicon-"]:before, [class*=" slicon-"]:before {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.slicon-line:before { content: '\e800'; } /* '' */
+.slicon-reddit:before { content: '\e801'; } /* '' */
+.slicon-wordpress:before { content: '\e802'; } /* '' */
+.slicon-stackoverflow:before { content: '\e803'; } /* '' */
+.slicon-email:before { content: '\e804'; } /* '' */
+.slicon-phone:before { content: '\e805'; } /* '' */
+.slicon-address:before { content: '\e806'; } /* '' */
+.slicon-attach:before { content: '\e807'; } /* '' */
+.slicon-kakao:before { content: '\e808'; } /* '' */
+.slicon-web:before { content: '\e809'; } /* '' */
+.slicon-hangouts:before { content: '\e820'; } /* '' */
+.slicon-messenger:before { content: '\e821'; } /* '' */
+.slicon-google-plus:before { content: '\e8e5'; } /* '' */
+.slicon-instagram:before { content: '\e8e7'; } /* '' */
+.slicon-twitter:before { content: '\f099'; } /* '' */
+.slicon-facebook:before { content: '\f09a'; } /* '' */
+.slicon-github:before { content: '\f09b'; } /* '' */
+.slicon-linkedin:before { content: '\f0e1'; } /* '' */
+.slicon-mobile:before { content: '\f10b'; } /* '' */
+.slicon-youtube:before { content: '\f167'; } /* '' */
+.slicon-skype:before { content: '\f17e'; } /* '' */
+.slicon-wechat:before { content: '\f1d7'; } /* '' */
+.slicon-whatsapp:before { content: '\f232'; } /* '' */
+.slicon-flickr:before { content: '\f303'; } /* '' */
+.slicon-vimeo:before { content: '\f306'; } /* '' */
+.slicon-pinterest:before { content: '\f312'; } /* '' */
+.slicon-tumblr:before { content: '\f315'; } /* '' */
+.slicon-dribbble:before { content: '\f31b'; } /* '' */
+.slicon-youku:before { content: '\f324'; } /* '' */
+.slicon-qq:before { content: '\f32a'; } /* '' */
+.slicon-dropbox:before { content: '\f330'; } /* '' */
+.slicon-paypal:before { content: '\f342'; } /* '' */
