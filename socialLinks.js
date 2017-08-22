@@ -21,7 +21,7 @@
         pinterest: '<li><a class="sl-link[[color]]" href="https://www.pinterest.com/[[id]]/" target="_blank"><i class="slicon-pinterest"></i>[[label]] [[account]]</a></li>',
         qq: '',
         reddit: '',
-        skype: '<li><a class="sl-link[[color]]" data-toggle="sl-popover" data-content="Get your <a href=\'https://www.skype.com/en/download-skype/\' target=\'_blank\'>Skype</a> and add my ID: <b>[[id]]</b>"><i class="slicon-skype"></i>[[label]] [[account]]</a></li>',
+        skype: '<li><a class="sl-link[[color]]" href="skype:[[id]]?call" target="_blank"><i class="slicon-skype"></i>[[label]] [[account]]</a></li>',
         stackoverflow: '<li><a class="sl-link[[color]]" href="https://stackoverflow.com/users/[[id]]/" target="_blank"><i class="slicon-stackoverflow"></i>[[label]] [[account]]</a></li>',
         tumblr: '<li><a class="sl-link[[color]]" href="https://[[id]].tumblr.com" target="_blank"><i class="slicon-tumblr"></i>[[label]] [[account]]</a></li>',
         twitter: '<li><a class="sl-link[[color]]" href="https://twitter.com/[[id]]" target="_blank"><i class="slicon-twitter"></i>[[label]] [[account]]</a></li>',
@@ -97,7 +97,4 @@
         }
         return str;
     }
-    $('[data-toggle="sl-popover"]').popover({
-        html: true
-    });
 }(jQuery));
