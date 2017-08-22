@@ -4,7 +4,7 @@ jQuery plugin for generating links to social accounts.
 ## Required
 This plugin is built on top of the following:
   * jQuery 3.2.1 (jquery-3.2.1.min.js)
-  * BootStrap 4 (bootstrap.min.css, bootstrap.min.js)
+  * BootStrap 4 (bootstrap.min.css, bootstrap.min.js - if you have Hangouts, Kakao Talk, or WhatsApp in the list)
   * Popper (required by Bootstrap, popper.min.js)
   
 ## How to use
@@ -26,6 +26,14 @@ For example, Facebook's account owner owns the account ID xyzabc, display name J
 
 <pre>
 facebook: {id: "xyzabc", account: "John Doe"}
+</pre>
+
+For Hangouts, Kakao Talk, and WhatsApp, you have to add the following code to activate the popover. Feel free to modify the looks and feel of the popover by modify the options to this Bootstrap's popover function.
+
+<pre>
+$('[data-toggle="sl-popover"]').popover({
+    html: true
+});
 </pre>
 
 ### Supported Socials
