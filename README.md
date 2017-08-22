@@ -29,22 +29,22 @@ facebook: {id: "xyzabc", account: "John Doe"}
 </pre>
 
 ### Supported Socials
-   * Facebook, use key <code>facebook</bode>
-   * GitHub, use key <code>github</bode>
-   * Google+, use key <code>google_plus</bode>
-   * Google Hangouts, use key <code>hangouts</bode>
-   * Instagram, use key <code>instagram</bode>
-   * Kakao Talk, use key <code>kakao</bode>
-   * LINE, use key <code>line</bode>
-   * LinkedIn, use key <code>linkedin</bode>
-   * Facebook Messenger, use key <code>messenger</bode>
-   * Pinterest, use key <code>pinterest</bode>
-   * Skype, use key <code>skype</bode>
-   * StackOverflow, use key <code>stackoverflow</bode>
-   * Tumblr, use key <code>tumblr</bode>
-   * Twitter, use key <code>twitter</bode>
-   * WhatsApp, use key <code>whatsapp</bode>
-   * YouTube, use key <code>youtube</bode>
+   * Facebook, use key <code>facebook</code>
+   * GitHub, use key <code>github</code>
+   * Google+, use key <code>google_plus</code>
+   * Google Hangouts, use key <code>hangouts</code>
+   * Instagram, use key <code>instagram</code>
+   * Kakao Talk, use key <code>kakao</code>
+   * LINE, use key <code>line</code>
+   * LinkedIn, use key <code>linkedin</code>
+   * Facebook Messenger, use key <code>messenger</code>
+   * Pinterest, use key <code>pinterest</code>
+   * Skype, use key <code>skype</code>
+   * StackOverflow, use key <code>stackoverflow</code>
+   * Tumblr, use key <code>tumblr</code>
+   * Twitter, use key <code>twitter</code>
+   * WhatsApp, use key <code>whatsapp</code>
+   * YouTube, use key <code>youtube</code>
 
 ### Supported Contact Links and Others
   * Address (Generate your address with a link to Google Maps e.g. <code>address: {id: "Sydney+Opera+House", account: "Sydney Opera House"}</code> will produce link to https://www.google.com/maps/place/Sydney+Opera+House labeled "Sydney Opera House", the ID has to be specific enough for Google Maps to recognize, you should test the link before launching it to production), use key <code>address</code>
