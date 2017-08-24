@@ -81,3 +81,7 @@ Where
 ## Output
 
 The plugin will add `<ul>` with the list of social medias and contact information to the selected `<div>`.
+
+## Next in V2.1
+
+The links will be fixed to open the app (if available) first before opening the link in browser.
