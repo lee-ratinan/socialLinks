@@ -35,13 +35,48 @@ $(function() {
 ```
 
 Where
-  1. `social` is the object of social medias and other contactable channels, with `id` and `account`.
-  2. `showLabel` (boolean) Indicates whether to show the label in the output.
-  3. `showAccount` (boolean) Indicates whther to show the account's **name/display name/number**.
-  4. `showLink` (boolean) Indicates whether to show the URL.
-  5. `trueColor` (boolean) Indicates whether to override the color to the social media's brand color.
+  1. `social` is the object of social media and other contactable channels, with `id` and `account`.
+  2. `showLabel` (boolean) Indicates whether to show the label in the output. (default: `false`)
+  3. `showAccount` (boolean) Indicates whther to show the account's **name/display name/number**. (default: `true`)
+  4. `showLink` (boolean) Indicates whether to show the URL. (default: `false`)
+  5. `trueColor` (boolean) Indicates whether to override the color to the social media's brand color. (default: `true`)
   6. `linkTemplate` (html) This is for overriding the template for social medias that can be linked directly to the account specified in `social`.
   7. `popTemplate` (html) This is for overriding the template for social medias that require a popup message with the link for downloading the app and adding the account/id.
+
+## Supported Social Media and Others
+
+### Social Media
+  1. Dribbble (`dribbble: {id: '', account: ''}`)
+  2. Facebook (`facebook: {id: '', account: ''}`)
+  3. GitHub (`github: {id: '', account: ''}`)
+  4. Google+ (`google_plus: {id: '', account: ''}`)
+  5. Hangouts (`hangouts: {id: '', account: ''}`)
+  6. Instagram (`instagram: {id: '', account: ''}`)
+  7. Kakao (`kakao: {id: '', account: ''}`)
+  8. LINE (`line: {id: '', account: ''}`)
+  9. LinkedIn (`linkedin: {id: '', account: ''}`)
+  10. Messenger (`messenger: {id: '', account: ''}`)
+  11. PayPal Me (`paypal: {id: '', account: ''}`)
+  12. Pinterest (`pinterest: {id: '', account: ''}`)
+  13. QQ (`qq: {id: '', account: ''}`)
+  14. Skype (`skype: {id: '', account: ''}`)
+  15. StackOverflow (`stackoverflow: {id: '', account: ''}`)
+  16. Tumblr (`tumblr: {id: '', account: ''}`)
+  17. Twitter (`twitter: {id: '', account: ''}`)
+  18. WeChat (`wechat: {id: '', account: ''}`)
+  19. WhatsApp (`whatsapp: {id: '', account: ''}`)
+  20. YouTube (`youtube: {id: '', account: ''}`)
+  
+### Contact
+  1. Address (`address: {id: '[Query string that is Google Map-friendly]', account: '[What to be displayed if showAccount is true]'}`)
+  2. Email (`email: {id: '[Email address]', account: '[Email address]'}`)
+  3. Mobile no. (`mobile: {id: '[Phone number, should be in E123 or E164]', account: '[Phone number to be shown]'}`)
+  4. Phone no. (`phone: {id: '[Phone number, should be in E123 or E164]', account: '[Phone number to be shown]'}`)
+  5. Website (`web: {id: '[URL]', account: '[Website name]'}`)
+  6. WordPress (`wordpress: {id: '[URL]', account: '[Website name]'}`)
+  
+### Others
+  1. Attachment (`attach: {id: '[URL of the file]', account: '[Anything to be shown]'}`)
 
 ## Output
 
