@@ -1,100 +1,114 @@
-(function ( $ ) {
-    var socialLinkTemplates = {
-        address: '<li><a class="sl-link[[color]]" href="https://www.google.com.sg/maps/place/[[id]]" target="_blank"><i class="slicon-address"></i>[[label]] [[account]]</a></li>',
-        attach: '<li><a class="sl-link[[color]]" href="[[id]]" target="_blank"><i class="slicon-attach"></i>[[label]] [[account]]</a></li>',
-        dribbble: '',
-        dropbox: '',
-        email: '<li><a class="sl-link[[color]]" href="mailto:[[id]]" target="_blank"><i class="slicon-email"></i>[[label]] [[account]]</a></li>',
-        facebook: '<li><a class="sl-link[[color]]" href="https://www.facebook.com/[[id]]" target="_blank"><i class="slicon-facebook"></i>[[label]] [[account]]</a></li>',
-        flickr: '',
-        github: '<li><a class="sl-link[[color]]" href="https://github.com/[[id]]" target="_blank"><i class="slicon-github"></i>[[label]] [[account]]</a></li>',
-        google_plus: '<li><a class="sl-link[[color]]" href="https://plus.google.com/+[[id]]" target="_blank"><i class="slicon-google-plus"></i>[[label]] [[account]]</a></li>',
-        hangouts: '<li><a class="sl-link[[color]]" data-toggle="sl-popover" data-content="Add <b>[[id]]</b> to your contact list and start chating at <a href=\'https://hangouts.google.com\' target=\'_blank\'>hangouts.google.com</a>"><i class="slicon-hangouts"></i>[[label]] [[account]]</a></li>',
-        instagram: '<li><a class="sl-link[[color]]" href="https://www.instagram.com/[[id]]" target="_blank"><i class="slicon-instagram"></i>[[label]] [[account]]</a></li>',
-        kakao: '<li><a class="sl-link[[color]]" data-toggle="sl-popover" data-content="Get your <a href=\'http://kakao.com/talk\' target=\'_blank\'>Kakao</a> app and find my kakao<b>account</b>: <b>[[id]]</b>"><i class="slicon-hangouts"></i>[[label]] [[account]]</a></li>',
-        line: '<li><a class="sl-link[[color]]" href="http://line.me/ti/p/[[id]]" target="_blank"><i class="slicon-line"></i>[[label]] [[account]]</a></li>',
-        linkedin: '<li><a class="sl-link[[color]]" href="https://www.linkedin.com/in/[[id]]/" target="_blank"><i class="slicon-linkedin"></i>[[label]] [[account]]</a></li>',
-        messenger: '<li><a class="sl-link[[color]]" href="https://m.me/[[id]]/" target="_blank"><i class="slicon-messenger"></i>[[label]] [[account]]</a></li>',
-        mobile: '<li><a class="sl-link[[color]]" href="tel:[[id]]" target="_blank"><i class="slicon-mobile"></i>[[label]] [[account]]</a></li>',
-        paypal: '<li><a class="sl-link[[color]]" href="https://paypal.me/[[id]]" target="_blank"><i class="slicon-paypal"></i>[[label]] [[account]]</a></li>',
-        phone: '<li><a class="sl-link[[color]]" href="tel:[[id]]" target="_blank"><i class="slicon-phone"></i>[[label]] [[account]]</a></li>',
-        pinterest: '<li><a class="sl-link[[color]]" href="https://www.pinterest.com/[[id]]/" target="_blank"><i class="slicon-pinterest"></i>[[label]] [[account]]</a></li>',
-        qq: '',
-        reddit: '',
-        skype: '<li><a class="sl-link[[color]]" href="skype:[[id]]?call" target="_blank"><i class="slicon-skype"></i>[[label]] [[account]]</a></li>',
-        stackoverflow: '<li><a class="sl-link[[color]]" href="https://stackoverflow.com/users/[[id]]/" target="_blank"><i class="slicon-stackoverflow"></i>[[label]] [[account]]</a></li>',
-        tumblr: '<li><a class="sl-link[[color]]" href="https://[[id]].tumblr.com" target="_blank"><i class="slicon-tumblr"></i>[[label]] [[account]]</a></li>',
-        twitter: '<li><a class="sl-link[[color]]" href="https://twitter.com/[[id]]" target="_blank"><i class="slicon-twitter"></i>[[label]] [[account]]</a></li>',
-        vimeo: '',
-        web: '<li><a class="sl-link[[color]]" href="[[id]]" target="_blank"><i class="slicon-web"></i>[[label]] [[account]]</a></li>',
-        wechat: '',
-        whatsapp: '<li><a class="sl-link[[color]]" data-toggle="sl-popover" data-content="Get your <a href=\'https://www.whatsapp.com\' target=\'_blank\'>WhatsApp</a> and add my telephone number to your phone contact: <b>[[id]]</b>"><i class="slicon-whatsapp"></i>[[label]] [[account]]</a></li>',
-        wordpress: '<li><a class="sl-link[[color]]" href="[[id]]" target="_blank"><i class="slicon-wordpress"></i>[[label]] [[account]]</a></li>',
-        youku: '',
-        youtube: '<li><a class="sl-link[[color]]" href="https://www.youtube.com/user/[[id]]" target="_blank"><i class="slicon-youtube"></i>[[label]] [[account]]</a></li>'
+(function ($) {
+    $.fn.socialLinks = function(options) {
+        var settings = $.extend({}, $.fn.socialLinks.defaults, options);
+        this.each(function() {
+            var str = '<ul class="socialLinks">';
+            $.each(settings.social, function(social, accountInfo) {
+                str += processSocial(social, accountInfo.id, accountInfo.account, settings.showLabel, settings.showAccount, settings.showLink, settings.trueColor, settings.linkTemplate, settings.popTemplate);
+            });
+            str += '</ul>';
+            $(this).html(str);
+        });
     };
-    var socialLinkLabels = {
+    function processSocial(social, id, accountName, showLabel, showAccount, showLink, trueColor, linkTemplate, popTemplate) {
+        var link = ($.fn.socialLinks.links[social]).replace('[[id]]', id),
+            colorClass = '',
+            label = '',
+            account = '',
+            spanLink = '';
+        if (trueColor) {
+            colorClass = 'sl-' + social + '-color';
+        }
+        if (showLabel) {
+            label = $.fn.socialLinks.labels[social];
+            if (showAccount || showLink) {
+                label += ': ';
+            }
+        }
+        if (showAccount) {
+            account = accountName;
+        }
+        if (showLink) {
+            spanLink = link;
+        }
+        switch (social) {
+            case 'hangouts':
+            case 'kakao':
+            case 'qq':
+            case 'wechat':
+            case 'whatsapp':
+                return popTemplate.replace('[[color_class]]', colorClass).replace('[[link]]', link).replace('[[social]]', social).replace('[[label]]', label).replace('[[account_name]]', account);
+                break;
+            default:
+                return linkTemplate.replace('[[color_class]]', colorClass).replace('[[link]]', link).replace('[[social]]', social).replace('[[label]]', label).replace('[[account_name]]', account).replace('[[span_link]]', spanLink);
+                break;
+
+        }
+    }
+    $.fn.socialLinks.defaults = {
+        showLabel: false,
+        showAccount: true,
+        showLink: false,
+        trueColor: true,
+        linkTemplate: '<li><a class="sl-link [[color_class]]" href="[[link]]" target="_blank"><i class="slicon-[[social]]"></i> <span class="socialLabel">[[label]]</span> <span class="socialAccountName">[[account_name]]</span> <span class="socialLink">[[span_link]]</span></a></li>',
+        popTemplate: '<li><a class="sl-link [[color_class]]" data-toggle="sl-popover" data-content="[[link]]"><i class="slicon-[[social]]"></i> <span class="socialLabel">[[label]]</span> <span class="socialAccountName">[[account_name]]</span></a></li>'
+    };
+    $.fn.socialLinks.links = {
+        address: 'https://www.google.com.sg/maps/place/[[id]]',
+        attach: '[[id]]',
+        dribbble: 'https://dribbble.com/[[id]]',
+        email: 'mailto:[[id]]',
+        facebook: 'https://www.facebook.com/[[id]]',
+        github: 'https://github.com/[[id]]',
+        google_plus: 'https://plus.google.com/+[[id]]',
+        instagram: 'https://www.instagram.com/[[id]]',
+        line: 'http://line.me/ti/p/[[id]]',
+        linkedin: 'https://www.linkedin.com/in/[[id]]/',
+        messenger: 'https://m.me/[[id]]/',
+        mobile: 'tel:[[id]]',
+        paypal: 'https://paypal.me/[[id]]',
+        phone: 'tel:[[id]]',
+        pinterest: 'https://www.pinterest.com/[[id]]/',
+        skype: 'skype:[[id]]?call',
+        stackoverflow: 'https://stackoverflow.com/users/[[id]]/',
+        tumblr: 'https://[[id]].tumblr.com',
+        twitter: 'https://twitter.com/[[id]]',
+        web: '[[id]]',
+        wordpress: '[[id]]',
+        youtube: 'https://www.youtube.com/user/[[id]]',
+        hangouts: "Add <em>[[id]]</em> to your contact list and start chating at <a href='https://hangouts.google.com' target='_blank'>https://hangouts.google.com</a>",
+        kakao: "Get your <a href='http://kakao.com/talk' target='_blank'>Kakao</a> app and find my kakao<b>account</b>: <em>[[id]]</em>",
+        qq: "Get your <a href='http://www.imqq.com' target='_blank'>QQ</a> and search for my ID: <em>[[id]]</em>",
+        wechat: "Get your <a href='https://www.wechat.com' target='_blank'>WeChat</a> and search for my ID: <em>[[id]]</em>",
+        whatsapp: "Get your <a href='https://www.whatsapp.com' target='_blank'>WhatsApp</a> and add my telephone number to your phone contact: <em>[[id]]</em>"
+    };
+    $.fn.socialLinks.labels = {
         address: 'Address',
         attach: 'Attachment',
         dribbble: 'Dribbble',
-        dropbox: 'Dropbox',
-        email: 'Email Address',
+        email: 'Email',
         facebook: 'Facebook',
-        flickr: 'Flickr',
         github: 'GitHub',
         google_plus: 'Google+',
-        hangouts: 'Google Hangouts',
         instagram: 'Instagram',
-        kakao: 'KakaoTalk',
         line: 'LINE',
         linkedin: 'LinkedIn',
         messenger: 'Messenger',
-        mobile: 'Mobile no.',
+        mobile: 'Mobile',
         paypal: 'PayPal Me',
-        phone: 'Phone no.',
-        pinterest: 'Pinterest',
-        qq: 'QQ',
-        reddit: 'Reddit',
+        phone: 'Tel',
+        pinterest: 'Pinterests',
         skype: 'Skype',
         stackoverflow: 'StackOverflow',
         tumblr: 'Tumblr',
         twitter: 'Twitter',
-        vimeo: 'Vimeo',
-        web: 'Personal Website',
+        web: 'Website',
+        wordpress: 'WordPress',
+        youtube: 'YouTube',
+        hangouts: 'Hangouts',
+        kakao: 'KakaoTalk',
+        qq: 'QQ',
         wechat: 'WeChat',
-        whatsapp: 'WhatsApp',
-        wordpress: 'Wordpress',
-        youku: 'Youku',
-        youtube: 'YouTube'
+        whatsapp: 'WhatsApp'
     };
-    $.fn.socialLinks = function(options) {
-        var str = "<ul class='socialLinks'>";
-        $.each(options.social, function (i, v) {
-            var colorCls = '';
-            if (options.trueColor) {
-                colorCls = ' sl-' + i + '-color';
-            }
-            str += processSocial(i, v.id, v.account, options.showLabel, options.showAccount, colorCls);
-        });
-        str += "</ul>";
-        this.html(str);
-    };
-    function processSocial(key, accountId, accountName, label, account, colorCls) {
-        var str = socialLinkTemplates[key].replace('[[color]]', colorCls).replace('[[id]]', accountId);
-        if (label) {
-            var sep = '';
-            if (account) {
-                sep = ': ';
-            }
-            str = str.replace('[[label]]', '<span class="socialLinkLabel">' + socialLinkLabels[key] + sep + '</span>');
-        } else {
-            str = str.replace('[[label]]', '');
-        }
-        if (account) {
-            str = str.replace('[[account]]', '<span class="socialLinkAccountName">' + accountName + '</span>');
-        } else {
-            str = str.replace('[[account]]', '');
-        }
-        return str;
-    }
 }(jQuery));
